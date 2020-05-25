@@ -1,15 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <title>{% if title %} {{ title }} {% else %} {{ site.title }} {% endif %}</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <link type="image/x-icon" href="{{ '/' | url }}assets/images/favicon.ico" rel="shortcut icon"/>
+        <link type="image/x-icon" href="../images/favicon.ico" rel="shortcut icon"/>
 
         <!-- Foundation flex grid -->
-      
-        {% include partials/foundationflexgrid.html %}
-        
+
+        {% include partials/foundationpostgrid.html %}
         <!--[if lte IE 8]>
         <script type="text/javascript">document.createElement("header")</script>
         <script type="text/javascript">document.createElement("nav")</script>
@@ -20,22 +19,13 @@
 
         <script type="text/javascript" src="{{ '/' | url }}lib/infusion/infusion-all.js"></script>
         <script type="text/javascript" src="{{ '/' | url }}assets/js/floe.js"></script>
-        {% if page.url == "/resources.html" %}
-        <script type="text/javascript" src="{{ '/' | url }}assets/js/resources.js"></script>
-        {% endif %}
-
-        {% if page.url == "/uioptions.html" %}
-        <script type="text/javascript" src="{{ '/' | url }}assets/js/resources.js"></script>
-        {% endif %}
-
     </head>
     <body>
         <script type="text/javascript">
             $(document).ready(function () {
-                floe.setupUIO();
+                floe.setupUIO("../");
             });
         </script>
-
         {% include partials/uio.html %}
 
         <div id="skip">
@@ -47,6 +37,5 @@
             {{content}}
             {% include partials/footer.html %}
         </div>
-    </body>   
-    </head>
+    </body>
 </html>
