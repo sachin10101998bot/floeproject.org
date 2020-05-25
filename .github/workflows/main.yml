@@ -1,5 +1,5 @@
-- name: Eleventy Action
-  uses: TartanLlama/actions-eleventy@v1.2
+name: Eleventy Action
+uses: TartanLlama/actions-eleventy@v1.2
   with:
     # Arguments to pass to the Eleventy invocation
     args: # optional
