@@ -1,7 +1,21 @@
-- name: Eleventy Action
-  uses: TartanLlama/actions-eleventy@v1.2
-  with:
-    # Arguments to pass to the Eleventy invocation
-    args: # optional
-    # If set to `true`, `npm install` will be run before Eleventy is invoked
-    install_dependencies: # optional
+name: Test and build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Cache node modules
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+    - name: npm install, build, and test
+      run: |
+        npm install
+        npm eleventy
+        npm run build
+      env:
+        CI: true
