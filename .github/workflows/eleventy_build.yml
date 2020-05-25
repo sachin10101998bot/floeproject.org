@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - eleventy
+      - master
 
 jobs:
   deploy:
